@@ -14,5 +14,9 @@ app.listen(port, () => {
 app.get('/', (req, res) => res.send('Hello pets!'));
 
 app.get('/test/', (req, res) => {
-  res.send(`The application is currently running on port ${port}!`);
+  const obj = {};
+  obj.port = port;
+  obj.API_PATH = process.env.API_PATH;
+  obj.API_KEY = process.env.API_KEY;
+  res.status(403).send(obj);
 });
