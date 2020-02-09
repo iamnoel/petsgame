@@ -11,7 +11,7 @@ app.listen(port, () => {
   console.log(`Application listening on port ${port}`);
 });
 
-app.get('/', (req, res) => res.send('Hello pets!'));
+app.get('/', (req, res) => res.status(200).send('Hello pets!'));
 
 app.get('/test/', (req, res) => {
   const obj = {};
