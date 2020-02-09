@@ -12,3 +12,7 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => res.send('Hello pets!'));
+
+app.get('/test/', (req, res) => {
+  res.send(`The application is currently running on port ${port}!`);
+});
