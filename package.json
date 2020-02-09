@@ -4,6 +4,8 @@
   "description": "A simple yet humble pet game",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
+    "server": "nodemon server.js",
     "test": "test"
   },
   "repository": {
