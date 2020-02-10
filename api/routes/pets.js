@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  res.status(200).json({
+  res.status(201).json({
     message: 'Handling POST requests to /pets',
   });
 });
@@ -27,6 +27,20 @@ router.get('/:petID', (req, res, next) => {
       id: id,
     });
   }
+});
+
+router.patch('/:petID', (req, res, next) => {
+  res.status(200).json({
+    message: 'Updated pet',
+    id: req.params.petID,
+  });
+});
+
+router.delete('/:petID', (req, res, next) => {
+  res.status(200).json({
+    message: `Deleted pet`,
+    id: req.params.petID,
+  });
 });
 
 module.exports = router;
