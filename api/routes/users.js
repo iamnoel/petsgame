@@ -8,8 +8,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  req.status(201).json({
+  const user = {
+    name: req.body.name,
+    id: req.body.id,
+  };
+  res.status(201).json({
     message: 'User was created',
+    user: user,
   });
 });
 
