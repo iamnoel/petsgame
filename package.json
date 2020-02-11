@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon server.js",
     "server": "nodemon index.js",
-    "test": "test"
+    "test": "test",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
