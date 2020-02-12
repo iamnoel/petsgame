@@ -102,3 +102,14 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Don't check auto-generated stuff into git
+coverage
+build
+node_modules
+stats.json
+
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
