@@ -13,7 +13,7 @@ export default defineMessages({
     defaultMessage: 'Home',
   },
   features: {
-    id: `${scope}.features`,
-    defaultMessage: 'Features',
+    id: `${scope}.play`,
+    defaultMessage: 'Play',
   },
 });
