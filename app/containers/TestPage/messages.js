@@ -15,6 +15,6 @@ export default defineMessages({
   },
   theTestMessage: {
     id: `${scope}.theTestMessage`,
-    defaultMessage: 'Welcome to Pets Game V0.1 Beta',
+    defaultMessage: 'Welcome to Pets Game V0.1 Alpha',
   },
 });
