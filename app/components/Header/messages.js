@@ -16,4 +16,8 @@ export default defineMessages({
     id: `${scope}.play`,
     defaultMessage: 'Play',
   },
+  pets: {
+    id: `${scope}.pets`,
+    defaultMessage: 'Pets',
+  },
 });

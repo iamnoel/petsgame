@@ -21,6 +21,9 @@ function Header() {
         <HeaderLink to="/game">
           <FormattedMessage {...messages.features} />
         </HeaderLink>
+        <HeaderLink to="/pets">
+          <FormattedMessage {...messages.pets} />
+        </HeaderLink>
       </NavBar>
     </div>
   );
