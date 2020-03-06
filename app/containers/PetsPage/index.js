@@ -19,18 +19,20 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
-export function PetsPage() {
+export function PetsPage({ pets }) {
   useInjectReducer({ key: 'petsPage', reducer });
   useInjectSaga({ key: 'petsPage', saga });
 
-  const fakeData = {
-    pets: [
-      { name: 'Dragon Pet', type: 'Dragon', health: 10 },
-      { name: 'Tiger Pet', type: 'Tiger', health: 10 },
-      { name: 'Angel Pet', type: 'Angel', health: 10 },
-      { name: 'Demon Pet', type: 'Demon', health: 10 },
-    ],
-  };
+  // const apiData = {
+  //   pets: [
+  //     { id: 1, name: 'Dragon Pet', type: 'Dragon', health: 10 },
+  //     { id: 2, name: 'Tiger Pet', type: 'Tiger', health: 10 },
+  //     { id: 3, name: 'Angel Pet', type: 'Angel', health: 10 },
+  //     { id: 4, name: 'Demon Pet', type: 'Demon', health: 10 },
+  //   ],
+  // };
+
+  function handleFeed() {}
 
   return (
     <div>
@@ -43,14 +45,21 @@ export function PetsPage() {
       </Helmet>
       <FormattedMessage {...messages.header} />
       <div className="container">
-        {fakeData.pets.map(data => (
+        {apiData.pets.map(data => (
           <div
-            style={{ border: '1px solid black', textAlign: 'center' }}
+            style={{
+              border: '1px solid black',
+              textAlign: 'center',
+              paddingBottom: '15px',
+              marginBottom: '10px',
+            }}
             className="col-sm"
+            key={data.id}
           >
             <h1>{data.name}</h1>
             <p>{data.type}</p>
             <p>{data.health}</p>
+            <button onClick={handleFeed}>Feed</button>
           </div>
         ))}
       </div>
@@ -60,6 +69,7 @@ export function PetsPage() {
 
 PetsPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  pets: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
