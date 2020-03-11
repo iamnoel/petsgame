@@ -18,8 +18,9 @@ import makeSelectPetsPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
+import { feedPet } from './actions';
 
-export function PetsPage({ pets }) {
+export function PetsPage({ handleFeed }) {
   useInjectReducer({ key: 'petsPage', reducer });
   useInjectSaga({ key: 'petsPage', saga });
 
@@ -32,8 +33,6 @@ export function PetsPage({ pets }) {
   //   ],
   // };
 
-  function handleFeed() {}
-
   return (
     <div>
       <Helmet>
@@ -45,7 +44,7 @@ export function PetsPage({ pets }) {
       </Helmet>
       <FormattedMessage {...messages.header} />
       <div className="container">
-        {apiData.pets.map(data => (
+        {/* {apiData.pets.map(data => (
           <div
             style={{
               border: '1px solid black',
@@ -61,15 +60,18 @@ export function PetsPage({ pets }) {
             <p>{data.health}</p>
             <button onClick={handleFeed}>Feed</button>
           </div>
-        ))}
+        ))} */}
+        <button type="submit" onClick={handleFeed}>
+          Feed Me
+        </button>
       </div>
     </div>
   );
 }
 
 PetsPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   pets: PropTypes.array,
+  handleFeed: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -78,7 +80,11 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    handleFeed: evt => {
+      dispatch(feedPet());
+      if (evt) {
+      }
+    },
   };
 }
 

@@ -4,7 +4,7 @@
  *
  */
 import produce from 'immer';
-import { DEFAULT_ACTION } from './constants';
+import { DEFAULT_ACTION, FEED_PET } from './constants';
 
 export const initialState = {
   pets: [
@@ -19,8 +19,8 @@ export const initialState = {
 const petsPageReducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
-      case 'feed':
-        console.log('Fed pet');
+      case FEED_PET:
+        // console.log(state.pets[0]);
         break;
       case DEFAULT_ACTION:
         break;
