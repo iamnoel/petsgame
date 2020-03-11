@@ -18,7 +18,7 @@ const selectPetsPageDomain = state => state.petsPage || initialState;
 const makeSelectPetsPage = () =>
   createSelector(
     selectPetsPageDomain,
-    substate => substate,
+    substate => substate.pets,
   );
 
 export default makeSelectPetsPage;

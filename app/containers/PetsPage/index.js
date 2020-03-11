@@ -20,7 +20,7 @@ import saga from './saga';
 import messages from './messages';
 import { feedPet } from './actions';
 
-export function PetsPage({ handleFeed }) {
+export function PetsPage({ handleFeed, pets }) {
   useInjectReducer({ key: 'petsPage', reducer });
   useInjectSaga({ key: 'petsPage', saga });
 
@@ -61,6 +61,23 @@ export function PetsPage({ handleFeed }) {
             <button onClick={handleFeed}>Feed</button>
           </div>
         ))} */}
+        {pets.map(data => (
+          <div
+            style={{
+              border: '1px solid black',
+              textAlign: 'center',
+              paddingBottom: '15px',
+              marginBottom: '10px',
+            }}
+            className="col-sm"
+            key={data.id}
+          >
+            <h1>{data.name}</h1>
+            <p>{data.type}</p>
+            <p>{data.health}</p>
+            <button type="submit" myData={data.id} onClick={handleFeed}>Feed</button>{/* Note: Get the id inside of reducer to identify pet */}
+          </div>
+        ))}
         <button type="submit" onClick={handleFeed}>
           Feed Me
         </button>
@@ -75,7 +92,7 @@ PetsPage.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  petsPage: makeSelectPetsPage(),
+  pets: makeSelectPetsPage(),
 });
 
 function mapDispatchToProps(dispatch) {
