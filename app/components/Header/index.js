@@ -12,7 +12,11 @@ function Header() {
   return (
     <div>
       <A href="/">
-        <Img src={Banner} alt="react-boilerplate - Logo" />
+        <Img
+          className="headerImage"
+          src={Banner}
+          alt="react-boilerplate - Logo"
+        />
       </A>
       <NavBar>
         <HeaderLink to="/">
