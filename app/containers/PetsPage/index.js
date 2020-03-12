@@ -75,12 +75,9 @@ export function PetsPage({ handleFeed, pets }) {
             <h1>{data.name}</h1>
             <p>{data.type}</p>
             <p>{data.health}</p>
-            <button type="submit" myData={data.id} onClick={handleFeed}>Feed</button>{/* Note: Get the id inside of reducer to identify pet */}
+            <button petid={data.id} type="submit" onClick={handleFeed}>Feed</button>{/* Note: Get the id inside of reducer to identify pet */}
           </div>
         ))}
-        <button type="submit" onClick={handleFeed}>
-          Feed Me
-        </button>
       </div>
     </div>
   );
@@ -98,9 +95,8 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     handleFeed: evt => {
-      dispatch(feedPet());
-      if (evt) {
-      }
+      console.log(evt.target);
+      dispatch(feedPet(evt.target.getAttribute("petid")));
     },
   };
 }

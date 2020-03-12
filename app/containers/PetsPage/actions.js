@@ -12,8 +12,9 @@ export function defaultAction() {
   };
 }
 
-export function feedPet() {
+export function feedPet(id) {
   return {
     type: FEED_PET,
+    payload: id
   };
 }

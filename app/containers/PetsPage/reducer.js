@@ -8,19 +8,28 @@ import { DEFAULT_ACTION, FEED_PET } from './constants';
 
 export const initialState = {
   pets: [
-    { id: 1, name: 'Dragon Pet', type: 'Dragon', health: 10 },
-    { id: 2, name: 'Tiger Pet', type: 'Tiger', health: 10 },
-    { id: 3, name: 'Angel Pet', type: 'Angel', health: 10 },
-    { id: 4, name: 'Demon Pet', type: 'Demon', health: 10 },
+    { id: 0, name: 'Dragon Pet', type: 'Dragon', health: 10 },
+    { id: 1, name: 'Tiger Pet', type: 'Tiger', health: 10 },
+    { id: 2, name: 'Angel Pet', type: 'Angel', health: 10 },
+    { id: 3, name: 'Demon Pet', type: 'Demon', health: 10 },
   ],
 };
 
 /* eslint-disable default-case, no-param-reassign */
 const petsPageReducer = (state = initialState, action) =>
-  produce(state, (/* draft */) => {
+  produce(state, (draft) => {
     switch (action.type) {
       case FEED_PET:
-        // console.log(state.pets[0]);
+        console.log(state.pets[action.payload]);
+        state.pets[action.payload].health += 1;
+        let thePets = [];
+        state.pets.map(pet =>{
+          if(pet.id === (action.payload)){
+            pet.health++;
+          }
+          thePets.push(pet);
+        });
+        draft.pets = thePets;
         break;
       case DEFAULT_ACTION:
         break;
