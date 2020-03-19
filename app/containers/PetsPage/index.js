@@ -19,6 +19,7 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 import { feedPet } from './actions';
+import PetCard from 'components/PetCard/Loadable';
 
 export function PetsPage({ handleFeed, pets }) {
   useInjectReducer({ key: 'petsPage', reducer });
@@ -42,41 +43,9 @@ export function PetsPage({ handleFeed, pets }) {
           content="Find a list of all your currently owned pets."
         />
       </Helmet>
-      <FormattedMessage {...messages.header} />
       <div className="container">
-        {/* {apiData.pets.map(data => (
-          <div
-            style={{
-              border: '1px solid black',
-              textAlign: 'center',
-              paddingBottom: '15px',
-              marginBottom: '10px',
-            }}
-            className="col-sm"
-            key={data.id}
-          >
-            <h1>{data.name}</h1>
-            <p>{data.type}</p>
-            <p>{data.health}</p>
-            <button onClick={handleFeed}>Feed</button>
-          </div>
-        ))} */}
         {pets.map(data => (
-          <div
-            style={{
-              border: '1px solid black',
-              textAlign: 'center',
-              paddingBottom: '15px',
-              marginBottom: '10px',
-            }}
-            className="col-sm"
-            key={data.id}
-          >
-            <h1>{data.name}</h1>
-            <p>{data.type}</p>
-            <p>{data.health}</p>
-            <button petid={data.id} type="submit" onClick={handleFeed}>Feed</button>{/* Note: Get the id inside of reducer to identify pet */}
-          </div>
+          <PetCard pet={data} handleFeed={handleFeed}/>
         ))}
       </div>
     </div>
