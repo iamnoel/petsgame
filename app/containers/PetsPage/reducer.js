@@ -4,7 +4,7 @@
  *
  */
 import produce from 'immer';
-import { DEFAULT_ACTION, FEED_PET } from './constants';
+import { DEFAULT_ACTION, FEED_PET, FEED_PET_SUCCESS } from './constants';
 
 export const initialState = {
   pets: [
@@ -31,6 +31,9 @@ const petsPageReducer = (state = initialState, action) =>
         });
         draft.pets = thePets;
         break;
+      case FEED_PET_SUCCESS:
+        console.log('success');
+        draft.pets = action.pets;
       case DEFAULT_ACTION:
         break;
     }
