@@ -1,14 +1,13 @@
 import { take, call, put, select, takeEvery } from 'redux-saga/effects';
+import request from 'utils/request';
 import { FEED_PET } from './constants';
 import { feedPetSuccess } from './actions';
 
 export function* feedPetSaga() {
   try {
     // Call our request helper (see 'utils/request')
-    const pets = [
-      { id: 0, name: 'Success Pet', type: 'Sucessor', health: 1000 },
-    ];
-    yield put(feedPetSuccess(pets));
+    const pets = yield call(request, `https://dev-api-petsgame.herokuapp.com/pets`);
+    yield put(feedPetSuccess(pets.pets));
   } catch (err) {
     const pets = [{ id: 0, name: 'Fail Pet', type: 'Failure', health: 9 }];
     yield put(feedPetSuccess(pets));

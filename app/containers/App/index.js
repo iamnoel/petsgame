@@ -19,6 +19,7 @@ import Footer from 'components/Footer';
 import TestPage from 'containers/TestPage/Loadable';
 import GamePage from 'containers/GamePage/Loadable';
 import PetsPage from 'containers/PetsPage/Loadable';
+import StorePage from 'containers/StorePage/Loadable';
 
 import GlobalStyle from '../../global-styles';
 
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/features" component={FeaturePage} />
         <Route path="/game" component={GamePage} />
         <Route path="/pets" component={PetsPage} />
+        <Route path="/store" component={StorePage} />
         <Route exact path="/" component={TestPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>

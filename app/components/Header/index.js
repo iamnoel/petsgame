@@ -28,6 +28,9 @@ function Header() {
         <HeaderLink to="/pets">
           <FormattedMessage {...messages.pets} />
         </HeaderLink>
+        <HeaderLink to="/store">
+          <FormattedMessage {...messages.store} />
+        </HeaderLink>
       </NavBar>
     </div>
   );

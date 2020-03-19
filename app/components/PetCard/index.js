@@ -28,15 +28,28 @@ function PetCard(props) {
       <h1>{props.pet.name}</h1>
       <p>{props.pet.type}</p>
       <p>{props.pet.health}</p>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={props.handleFeed}
-        petid={props.pet.id}
-        type="submit"
-      >
-        Feed
-      </Button>
+      {props.handleFeed && (
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={props.handleFeed}
+          petid={props.pet.id}
+          type="submit"
+        >
+          Feed
+        </Button>
+      )}
+      {props.handlePurchase && (
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={props.handlePurchase}
+          petid={props.pet.id}
+          type="submit"
+        >
+          Purchase
+        </Button>
+      )}
     </div>
   );
 }
@@ -48,6 +61,7 @@ PetCard.propTypes = {
   health: PropTypes.string,
   handleFeed: PropTypes.func,
   pet: PropTypes.object,
+  handlePurchase: PropTypes.func,
 };
 
 export default PetCard;

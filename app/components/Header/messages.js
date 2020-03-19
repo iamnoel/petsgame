@@ -20,4 +20,8 @@ export default defineMessages({
     id: `${scope}.pets`,
     defaultMessage: 'Pets',
   },
+  store: {
+    id: `${scope}.pets`,
+    defaultMessage: 'Store',
+  },
 });
