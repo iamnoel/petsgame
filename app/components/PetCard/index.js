@@ -28,21 +28,9 @@ function PetCard(props) {
       <h1>{props.pet.name}</h1>
       <p>{props.pet.type}</p>
       <p>{props.pet.health}</p>
-      <button
-        style={{
-          color: 'white',
-          backgroundColor: '#560c7a',
-          borderColor: 'white',
-        }}
-        petid={props.pet.id}
-        type="submit"
-        onClick={props.handleFeed}
-      >
-        Feedxx
-      </button>
       <Button
         variant="contained"
-        color="primary"
+        color="secondary"
         onClick={props.handleFeed}
         petid={props.pet.id}
         type="submit"

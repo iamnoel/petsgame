@@ -25,15 +25,6 @@ export function PetsPage({ handleFeed, pets }) {
   useInjectReducer({ key: 'petsPage', reducer });
   useInjectSaga({ key: 'petsPage', saga });
 
-  // const apiData = {
-  //   pets: [
-  //     { id: 1, name: 'Dragon Pet', type: 'Dragon', health: 10 },
-  //     { id: 2, name: 'Tiger Pet', type: 'Tiger', health: 10 },
-  //     { id: 3, name: 'Angel Pet', type: 'Angel', health: 10 },
-  //     { id: 4, name: 'Demon Pet', type: 'Demon', health: 10 },
-  //   ],
-  // };
-
   return (
     <div>
       <Helmet>
@@ -45,7 +36,7 @@ export function PetsPage({ handleFeed, pets }) {
       </Helmet>
       <div className="container">
         {pets.map(data => (
-          <PetCard pet={data} handleFeed={handleFeed} />
+          <PetCard key={data.id} pet={data} handleFeed={handleFeed} />
         ))}
       </div>
     </div>
@@ -64,8 +55,12 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     handleFeed: evt => {
-      console.log(evt.target);
-      dispatch(feedPet(evt.target.getAttribute('petid')));
+      dispatch(
+        feedPet(
+          evt.target.parentNode.getAttribute('petid') ||
+            evt.target.getAttribute('petid'),
+        ),
+      );
     },
   };
 }
