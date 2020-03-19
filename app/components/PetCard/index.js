@@ -7,6 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
 
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
@@ -19,7 +20,7 @@ function PetCard(props) {
         textAlign: 'center',
         paddingBottom: '15px',
         marginBottom: '10px',
-        color: '#560c7a'
+        color: '#560c7a',
       }}
       className="col-sm"
       key={props.pet.id}
@@ -27,7 +28,27 @@ function PetCard(props) {
       <h1>{props.pet.name}</h1>
       <p>{props.pet.type}</p>
       <p>{props.pet.health}</p>
-      <button style={{color: 'white', backgroundColor: '#560c7a', borderColor: 'white'}} petid={props.pet.id} type="submit" onClick={props.handleFeed}>Feed</button>{/* Note: Get the id inside of reducer to identify pet */}
+      <button
+        style={{
+          color: 'white',
+          backgroundColor: '#560c7a',
+          borderColor: 'white',
+        }}
+        petid={props.pet.id}
+        type="submit"
+        onClick={props.handleFeed}
+      >
+        Feedxx
+      </button>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={props.handleFeed}
+        petid={props.pet.id}
+        type="submit"
+      >
+        Feed
+      </Button>
     </div>
   );
 }
@@ -38,6 +59,7 @@ PetCard.propTypes = {
   type: PropTypes.string,
   health: PropTypes.string,
   handleFeed: PropTypes.func,
+  pet: PropTypes.object,
 };
 
 export default PetCard;

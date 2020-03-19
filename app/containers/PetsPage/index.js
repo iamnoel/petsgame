@@ -14,12 +14,12 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
+import PetCard from 'components/PetCard/Loadable';
 import makeSelectPetsPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 import { feedPet } from './actions';
-import PetCard from 'components/PetCard/Loadable';
 
 export function PetsPage({ handleFeed, pets }) {
   useInjectReducer({ key: 'petsPage', reducer });
@@ -45,7 +45,7 @@ export function PetsPage({ handleFeed, pets }) {
       </Helmet>
       <div className="container">
         {pets.map(data => (
-          <PetCard pet={data} handleFeed={handleFeed}/>
+          <PetCard pet={data} handleFeed={handleFeed} />
         ))}
       </div>
     </div>
@@ -65,7 +65,7 @@ function mapDispatchToProps(dispatch) {
   return {
     handleFeed: evt => {
       console.log(evt.target);
-      dispatch(feedPet(evt.target.getAttribute("petid")));
+      dispatch(feedPet(evt.target.getAttribute('petid')));
     },
   };
 }
