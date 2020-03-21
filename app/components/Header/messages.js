@@ -21,7 +21,15 @@ export default defineMessages({
     defaultMessage: 'Pets',
   },
   store: {
-    id: `${scope}.pets`,
+    id: `${scope}.store`,
     defaultMessage: 'Store',
+  },
+  register: {
+    id: `${scope}.register`,
+    defaultMessage: 'Register',
+  },
+  login: {
+    id: `${scope}.login`,
+    defaultMessage: 'Login',
   },
 });

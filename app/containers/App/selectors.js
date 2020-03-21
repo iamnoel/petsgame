@@ -45,6 +45,12 @@ const makeSelectInventory = () =>
     globalState => globalState.inventory,
   );
 
+const makeSelectIsAuthorized = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.isAuthorized,
+  );
+
 export {
   selectGlobal,
   makeSelectCurrentUser,
@@ -53,4 +59,5 @@ export {
   makeSelectRepos,
   makeSelectLocation,
   makeSelectInventory,
+  makeSelectIsAuthorized,
 };

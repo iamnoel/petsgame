@@ -18,6 +18,9 @@ import {
   LOAD_PET_INVENTORY_SUCCESS,
   FEED_PET,
   FEED_PET_SUCCESS,
+  CHECK_AUTHORIZATION,
+  CHECK_AUTHORIZATION_SUCCESS,
+  CHECK_AUTHORIZATION_FAIL,
 } from './constants';
 
 // The initial state of the App
@@ -29,6 +32,7 @@ export const initialState = {
     repositories: false,
   },
   inventory: [],
+  isAuthorized: false,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -72,8 +76,20 @@ const appReducer = (state = initialState, action) =>
 
       case FEED_PET_SUCCESS:
         draft.inventory.find(
+          // eslint-disable-next-line no-underscore-dangle
           foundPet => foundPet._id === action.pet.pet._id,
         ).health = action.pet.pet.health;
+        break;
+        
+      case CHECK_AUTHORIZATION:
+        break;
+
+      case CHECK_AUTHORIZATION_SUCCESS:
+        draft.isAuthorized = true;
+        break;
+
+      case CHECK_AUTHORIZATION_FAIL:
+        draft.isAuthorized = false;
         break;
     }
   });

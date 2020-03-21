@@ -20,6 +20,8 @@ import TestPage from 'containers/TestPage/Loadable';
 import GamePage from 'containers/GamePage/Loadable';
 import PetsPage from 'containers/PetsPage/Loadable';
 import StorePage from 'containers/StorePage/Loadable';
+import RegisterPage from 'containers/RegisterPage/Loadable';
+import LoginPage from 'containers/LoginPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
 
@@ -48,6 +50,8 @@ export default function App() {
         <Route path="/game" component={GamePage} />
         <Route path="/pets" component={PetsPage} />
         <Route path="/store" component={StorePage} />
+        <Route path="/register" component={RegisterPage} />
+        <Route path="/login" component={LoginPage} />
         <Route exact path="/" component={TestPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>

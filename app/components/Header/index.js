@@ -31,6 +31,12 @@ function Header() {
         <HeaderLink to="/store">
           <FormattedMessage {...messages.store} />
         </HeaderLink>
+        <HeaderLink to="/register">
+          <FormattedMessage {...messages.register} />
+        </HeaderLink>
+        <HeaderLink to="/login">
+          <FormattedMessage {...messages.login} />
+        </HeaderLink>
       </NavBar>
     </div>
   );
