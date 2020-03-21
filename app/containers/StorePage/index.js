@@ -16,11 +16,12 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { makeSelectInventory } from 'containers/App/selectors';
 import { useInjectReducer } from 'utils/injectReducer';
 import PetCard from 'components/PetCard/Loadable';
+import { addPetInventory } from 'containers/App/actions';
 import makeSelectStorePage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
-import { loadPets } from './actions';
+import { loadPets, purchasePet } from './actions';
 
 export function StorePage({ pets, handlePurchase, loadStorePets }) {
   useInjectReducer({ key: 'storePage', reducer });
@@ -38,7 +39,8 @@ export function StorePage({ pets, handlePurchase, loadStorePets }) {
       </Helmet>
       <div className="container">
         {pets.map(data => (
-          <PetCard key={data.id} pet={data} handlePurchase={handlePurchase} />
+          // eslint-disable-next-line no-underscore-dangle
+          <PetCard key={data._id} pet={data} handlePurchase={handlePurchase} />
         ))}
       </div>
     </div>
@@ -50,6 +52,7 @@ StorePage.propTypes = {
   pets: PropTypes.array,
   handlePurchase: PropTypes.func,
   loadStorePets: PropTypes.func,
+  inventory: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -61,7 +64,12 @@ function mapDispatchToProps(dispatch) {
   return {
     dispatch,
     handlePurchase: evt => {
-      // dispatch PURHCASE_PET
+      dispatch(
+        addPetInventory(
+          evt.target.parentNode.getAttribute('petid') ||
+            evt.target.getAttribute('petid'),
+        ),
+      );
     },
     loadStorePets: () => {
       dispatch(loadPets());

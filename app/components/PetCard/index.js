@@ -23,7 +23,7 @@ function PetCard(props) {
         color: '#560c7a',
       }}
       className="col-sm"
-      key={props.pet.id}
+      key={props.pet._id}
     >
       <h1>{props.pet.name}</h1>
       <p>{props.pet.type}</p>
@@ -33,7 +33,7 @@ function PetCard(props) {
           variant="contained"
           color="secondary"
           onClick={props.handleFeed}
-          petid={props.pet.id}
+          petid={props.pet._id}
           type="submit"
         >
           Feed
@@ -44,7 +44,7 @@ function PetCard(props) {
           variant="contained"
           color="secondary"
           onClick={props.handlePurchase}
-          petid={props.pet.id}
+          petid={props.pet._id}
           type="submit"
         >
           Purchase
@@ -55,7 +55,7 @@ function PetCard(props) {
 }
 
 PetCard.propTypes = {
-  id: PropTypes.string,
+  _id: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.string,
   health: PropTypes.string,

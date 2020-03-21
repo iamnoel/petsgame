@@ -8,7 +8,17 @@
  */
 
 import produce from 'immer';
-import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR } from './constants';
+import {
+  LOAD_REPOS_SUCCESS,
+  LOAD_REPOS,
+  LOAD_REPOS_ERROR,
+  ADD_PET_INVENTORY,
+  ADD_PET_INVENTORY_SUCCESS,
+  LOAD_PET_INVENTORY,
+  LOAD_PET_INVENTORY_SUCCESS,
+  FEED_PET,
+  FEED_PET_SUCCESS,
+} from './constants';
 
 // The initial state of the App
 export const initialState = {
@@ -18,6 +28,7 @@ export const initialState = {
   userData: {
     repositories: false,
   },
+  inventory: [],
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -39,6 +50,33 @@ const appReducer = (state = initialState, action) =>
       case LOAD_REPOS_ERROR:
         draft.error = action.error;
         draft.loading = false;
+        break;
+
+      case ADD_PET_INVENTORY:
+        break;
+
+      case ADD_PET_INVENTORY_SUCCESS:
+        console.log("Success");
+        break;
+
+      case LOAD_PET_INVENTORY:
+        console.log("Loading pets");
+        draft.inventory = [];
+        break;
+
+      case LOAD_PET_INVENTORY_SUCCESS:
+        console.log('The pets are');
+        console.log(action.pets);
+        draft.inventory = action.pets;
+        break;
+
+      case FEED_PET:
+        console.log("Feed pet");
+        break;
+
+      case FEED_PET_SUCCESS:
+        console.log("Feed pet success");
+        draft.inventory.find(pet => pet._id === action.id).health += 1;
         break;
     }
   });

@@ -12,3 +12,10 @@
 export const LOAD_REPOS = 'boilerplate/App/LOAD_REPOS';
 export const LOAD_REPOS_SUCCESS = 'boilerplate/App/LOAD_REPOS_SUCCESS';
 export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
+export const ADD_PET_INVENTORY = 'boilerplate/App/ADD_PET_INVENTORY';
+export const ADD_PET_INVENTORY_SUCCESS = 'boilerplate/App/ADD_PET_INVENTORY_SUCCESS';
+export const LOAD_PET_INVENTORY = 'boilerplate/App/LOAD_PET_INVENTORY';
+export const LOAD_PET_INVENTORY_SUCCESS = 'boilerplate/App/LOAD_PET_INVENTORY_SUCCESS';
+export const FEED_PET = 'boilerplate/App/FEED_PET';
+export const FEED_PET_SUCCESS = 'boilerplate/App/FEED_PET_SUCCESS';
+export const DEV_INVENTORY_ID = '5e756171d271768aead0afcb';

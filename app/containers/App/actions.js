@@ -15,7 +15,17 @@
  *    }
  */
 
-import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR } from './constants';
+import {
+  LOAD_REPOS,
+  LOAD_REPOS_SUCCESS,
+  LOAD_REPOS_ERROR,
+  ADD_PET_INVENTORY,
+  ADD_PET_INVENTORY_SUCCESS,
+  FEED_PET,
+  FEED_PET_SUCCESS,
+  LOAD_PET_INVENTORY,
+  LOAD_PET_INVENTORY_SUCCESS,
+} from './constants';
 
 /**
  * Load the repositories, this action starts the request saga
@@ -55,5 +65,46 @@ export function repoLoadingError(error) {
   return {
     type: LOAD_REPOS_ERROR,
     error,
+  };
+}
+
+export function addPetInventory(id) {
+  return {
+    type: ADD_PET_INVENTORY,
+    id,
+  };
+}
+
+export function addPetInventorySuccess(pet) {
+  return {
+    type: ADD_PET_INVENTORY_SUCCESS,
+    pet,
+  };
+}
+
+export function feedPet(id) {
+  return {
+    type: FEED_PET,
+    id,
+  };
+}
+
+export function feedPetSuccess(id) {
+  return {
+    type: FEED_PET_SUCCESS,
+    id,
+  };
+}
+
+export function loadPetInventory() {
+  return {
+    type: LOAD_PET_INVENTORY,
+  };
+}
+
+export function loadPetInventorySuccess(pets) {
+  return {
+    type: LOAD_PET_INVENTORY_SUCCESS,
+    pets,
   };
 }
