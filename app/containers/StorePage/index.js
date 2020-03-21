@@ -38,6 +38,7 @@ export function StorePage({ pets, handlePurchase, loadStorePets }) {
         <meta name="description" content="Description of StorePage" />
       </Helmet>
       <div className="container">
+        {pets.length < 1 && <h1>LOADING</h1>}
         {pets.map(data => (
           // eslint-disable-next-line no-underscore-dangle
           <PetCard key={data._id} pet={data} handlePurchase={handlePurchase} />
