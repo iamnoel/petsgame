@@ -56,27 +56,24 @@ const appReducer = (state = initialState, action) =>
         break;
 
       case ADD_PET_INVENTORY_SUCCESS:
-        console.log("Success");
         break;
 
       case LOAD_PET_INVENTORY:
-        console.log("Loading pets");
         draft.inventory = [];
         break;
 
       case LOAD_PET_INVENTORY_SUCCESS:
-        console.log('The pets are');
         console.log(action.pets);
         draft.inventory = action.pets;
         break;
 
       case FEED_PET:
-        console.log("Feed pet");
         break;
 
       case FEED_PET_SUCCESS:
-        console.log("Feed pet success");
-        draft.inventory.find(pet => pet._id === action.id).health += 1;
+        draft.inventory.find(
+          foundPet => foundPet._id === action.pet.pet._id,
+        ).health = action.pet.pet.health;
         break;
     }
   });

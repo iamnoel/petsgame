@@ -89,10 +89,10 @@ export function feedPet(id) {
   };
 }
 
-export function feedPetSuccess(id) {
+export function feedPetSuccess(pet) {
   return {
     type: FEED_PET_SUCCESS,
-    id,
+    pet,
   };
 }
 

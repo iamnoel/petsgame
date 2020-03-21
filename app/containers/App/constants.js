@@ -19,3 +19,4 @@ export const LOAD_PET_INVENTORY_SUCCESS = 'boilerplate/App/LOAD_PET_INVENTORY_SU
 export const FEED_PET = 'boilerplate/App/FEED_PET';
 export const FEED_PET_SUCCESS = 'boilerplate/App/FEED_PET_SUCCESS';
 export const DEV_INVENTORY_ID = '5e756171d271768aead0afcb';
+export const DEV_API_URL = 'https://dev-api-petsgame.herokuapp.com';

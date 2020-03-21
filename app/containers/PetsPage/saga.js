@@ -12,6 +12,7 @@ import request from 'utils/request';
 import {
   FEED_PET,
   DEV_INVENTORY_ID,
+  DEV_API_URL,
   LOAD_PET_INVENTORY,
 } from 'containers/App/constants';
 import {
@@ -21,9 +22,8 @@ import {
 
 export function* feedPetSaga(action) {
   try {
-    console.log('Feed saga');
-    console.log(action.id);
-    yield put(feedPetSuccess(action.id));
+    const pet = yield call(request, `${DEV_API_URL}/pets/${action.id}/feed`);
+    yield put(feedPetSuccess(pet));
   } catch (err) {
     console.log(err);
   }
@@ -32,7 +32,7 @@ export function* feedPetSaga(action) {
 export function* loadPetSaga() {
   const pets = yield call(
     request,
-    `https://dev-api-petsgame.herokuapp.com/inventories/${DEV_INVENTORY_ID}/pets`,
+    `${DEV_API_URL}/inventories/${DEV_INVENTORY_ID}/pets`,
   );
   console.log(pets);
   yield put(loadPetInventorySuccess(pets.pets));
