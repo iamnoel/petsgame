@@ -18,7 +18,7 @@ const selectRegisterPageDomain = state => state.registerPage || initialState;
 const makeSelectRegisterPage = () =>
   createSelector(
     selectRegisterPageDomain,
-    substate => substate,
+    substate => substate.inputs,
   );
 
 export default makeSelectRegisterPage;

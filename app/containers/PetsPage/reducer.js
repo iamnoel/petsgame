@@ -20,20 +20,10 @@ const petsPageReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case FEED_PET:
-        console.log(state.pets[action.payload]);
-        state.pets[action.payload].health += 1;
-        let thePets = [];
-        state.pets.map(pet =>{
-          if(pet.id === (action.payload)){
-            pet.health++;
-          }
-          thePets.push(pet);
-        });
-        draft.pets = thePets;
         break;
       case FEED_PET_SUCCESS:
-        console.log('success');
         draft.pets = action.pets;
+        break;
       case DEFAULT_ACTION:
         break;
     }

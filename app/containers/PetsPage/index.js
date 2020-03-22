@@ -23,7 +23,7 @@ import saga from './saga';
 import messages from './messages';
 // import { feedPet } from './actions';
 
-export function PetsPage({ handleFeed, pets, inventory, onPageLoad }) {
+export function PetsPage({ handleFeed, inventory, onPageLoad }) {
   useInjectReducer({ key: 'petsPage', reducer });
   useInjectSaga({ key: 'petsPage', saga });
 
@@ -52,14 +52,12 @@ export function PetsPage({ handleFeed, pets, inventory, onPageLoad }) {
 }
 
 PetsPage.propTypes = {
-  pets: PropTypes.array,
   handleFeed: PropTypes.func,
   inventory: PropTypes.array,
   onPageLoad: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
-  pets: makeSelectPetsPage(),
   inventory: makeSelectInventory(),
 });
 
