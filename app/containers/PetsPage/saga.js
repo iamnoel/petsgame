@@ -22,8 +22,17 @@ import {
 
 export function* feedPetSaga(action) {
   try {
-    const pet = yield call(request, `${DEV_API_URL}/pets/${action.id}/feed`);
-    yield put(feedPetSuccess(pet));
+    // const pet = yield call(request, `${DEV_API_URL}/pets/${action.id}/feed`);
+    // yield put(feedPetSuccess(pet));
+    console.log("POSTING");
+    const status = yield call(request, `${DEV_API_URL}/users/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: 'PLEASE WORK', email: 'Working', password: "69" }),
+    });
+    console.log(status.message);
   } catch (err) {
     console.log(err);
   }

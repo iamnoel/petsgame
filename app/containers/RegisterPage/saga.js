@@ -11,13 +11,14 @@ export function* onSubmitSaga(action) {
     password: action.password,
   };
   try {
-    const user = yield call(request, `${DEV_API_URL}/users`, {
+    const user = yield call(request, `${DEV_API_URL}/users/`, {
       method: 'POST',
-      body: newUser,
       headers: {
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify(newUser),
     });
+    // const user = yield call(request, `${DEV_API_URL}/users`, { method: 'POST' });
     yield put(onSubmitSuccess(user));
   } catch (err) {
     console.log(err);

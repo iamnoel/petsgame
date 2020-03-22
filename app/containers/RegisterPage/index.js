@@ -73,7 +73,7 @@ export function RegisterPage({ handleInputChange, handleSubmit, inputs }) {
             />
           </div>
           <div className="form-group">
-            <button type="submit">Register</button>
+            <button onClick={handleSubmit} type="button">Register</button>
           </div>
         </form>
       </div>
