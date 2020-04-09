@@ -88,7 +88,7 @@ RegisterPage.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  registerPage: makeSelectRegisterPage(),
+  inputs: makeSelectRegisterPage(),
 });
 
 function mapDispatchToProps(dispatch) {
